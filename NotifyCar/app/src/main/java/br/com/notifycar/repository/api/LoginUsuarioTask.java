@@ -61,8 +61,18 @@ public class LoginUsuarioTask extends AsyncTask<String, Void, String> {
             out.flush();
             out.close();
 
-            InputStream conteudo = conn.getInputStream();
-            json = UtilJson.toString(conteudo);
+
+
+            if(conn.getResponseCode() == 404) {
+                InputStream conteudo = conn.getErrorStream();
+                json = UtilJson.toString(conteudo);
+            }
+
+            if(conn.getResponseCode() == 200) {
+                InputStream conteudo = conn.getInputStream();
+                json = UtilJson.toString(conteudo);
+            }
+
 
         }catch(Exception e){
             e.printStackTrace();
@@ -74,10 +84,8 @@ public class LoginUsuarioTask extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String json) {
-
         try {
             JSONObject obj = new JSONObject(json);
-
             Boolean validaLogin = obj.getBoolean("auth");
 
             if (validaLogin == true) {
@@ -89,9 +97,8 @@ public class LoginUsuarioTask extends AsyncTask<String, Void, String> {
                 helper.hideDialog(activity);
                 ListaInformacoesUsuarioTask taskUsuario = new ListaInformacoesUsuarioTask(activity,cpEmail);
                 taskUsuario.execute();
-            } else if(validaLogin == false || json.isEmpty()) {
+            } else {
                     helper.hideDialog(activity);
-
                     AlertDialog alerta;
 
                     final AlertDialog.Builder builderAlert = new AlertDialog.Builder(activity);
@@ -108,16 +115,10 @@ public class LoginUsuarioTask extends AsyncTask<String, Void, String> {
                     alerta = builderAlert.create();
                     alerta.show();
                 }
-
-
         } catch (Exception e) {
             helper.hideDialog(activity);
             e.printStackTrace();
         }
-
-        helper.hideDialog(activity);
     }
-
-
 
 }

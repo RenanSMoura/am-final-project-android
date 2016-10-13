@@ -1,5 +1,6 @@
 package br.com.notifycar.menu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import br.com.notifycar.R;
+import br.com.notifycar.controller.LoginActivity;
 import br.com.notifycar.controller.mapa.MapsViewActivity;
 import br.com.notifycar.menu.fragments.HomeFragment;
 import br.com.notifycar.menu.tab.TabFragment;
@@ -59,6 +61,12 @@ public class MenuTabActivity extends AppCompatActivity {
                     xfragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
                 }
 
+                 if(menuItem.getItemId() == R.id.menuSairApp) {
+                     Intent it = new Intent(MenuTabActivity.this , LoginActivity.class);
+                     it.addCategory(Intent.CATEGORY_HOME);
+                     it.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                     startActivity(it);
+                 }
                  return false;
             }
 

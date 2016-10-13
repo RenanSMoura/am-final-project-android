@@ -38,9 +38,8 @@
 
     <group android:id="@+id/group_settings_id">
 
-        <item android:title="Teste"
-              />
-        <item android:title="Teste"
+        <item android:title="Sair"
+            android:id="@+id/menuSairApp"
              />
     </group>
 

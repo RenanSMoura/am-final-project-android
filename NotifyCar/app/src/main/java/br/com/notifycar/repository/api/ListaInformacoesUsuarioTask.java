@@ -34,12 +34,16 @@ public class ListaInformacoesUsuarioTask extends AsyncTask<String, Void, String>
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
 
-
-            int codigo = conn.getResponseCode();
-            if (codigo == 200) {
+            if (conn.getResponseCode() == 200) {
                 InputStream conteudo = conn.getInputStream();
                 json = UtilJson.toString(conteudo);
             }
+
+            if(conn.getResponseCode() == 404){
+                InputStream conteudo = conn.getErrorStream();
+                json = UtilJson.toString(conteudo);
+            }
+
         }catch (Exception e){
             e.getMessage();
         }
@@ -48,7 +52,6 @@ public class ListaInformacoesUsuarioTask extends AsyncTask<String, Void, String>
 
     @Override
     protected void onPostExecute(String json) {
-
         helper.recuperaInformaçõesUsuario(activity, json);
     }
 }
