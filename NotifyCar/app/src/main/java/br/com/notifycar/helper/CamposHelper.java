@@ -278,14 +278,14 @@ public class CamposHelper {
         modelos = (Spinner) activity.findViewById(R.id.spinnerModelos);
 
         ArrayList<String> coresList = new ArrayList<>();
-        coresList.add("branco");
-        coresList.add("prata");
-        coresList.add("preto");
-        coresList.add("verde");
-        coresList.add("azul");
-        coresList.add("vinho");
+        coresList.add("Branco");
+        coresList.add("Prata");
+        coresList.add("Preto");
+        coresList.add("Verde");
+        coresList.add("Azul");
+        coresList.add("Vinho");
 
-        ArrayAdapter<String> adp = new ArrayAdapter<>(activity, android.R.layout.simple_spinner_item, coresList);
+        ArrayAdapter<String> adp = new ArrayAdapter<>(activity, R.layout.spinner_item, coresList);
         cores.setAdapter(adp);
 
 

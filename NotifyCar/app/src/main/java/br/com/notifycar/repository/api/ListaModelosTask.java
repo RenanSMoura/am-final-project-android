@@ -70,7 +70,7 @@ public class ListaModelosTask extends AsyncTask<String, Void, String> {
                 modelo.setNome(lsModelos.getJSONObject(i).getString("nome"));
                 modelos.add(modelo);
             }
-            ArrayAdapter<Modelo> adp = new ArrayAdapter<Modelo>(activity, android.R.layout.simple_spinner_item,modelos);
+            ArrayAdapter<Modelo> adp = new ArrayAdapter<Modelo>(activity, R.layout.spinner_item,modelos);
             spites.setAdapter(adp);
         } catch (JSONException e) {
             e.printStackTrace();
