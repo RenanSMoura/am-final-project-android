@@ -14,8 +14,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import br.com.notifycar.controller.CadastroDeviceActivity;
-import br.com.notifycar.controller.CadastroVeiculoActivity;
+import br.com.notifycar.controller.CadastroDispositivoActivity;
 import br.com.notifycar.helper.CamposHelper;
 import br.com.notifycar.util.UtilJson;
 
@@ -85,7 +84,7 @@ public class CadastroVeiculoTask extends AsyncTask<String, Void, String> {
         Toast.makeText(activity, "Veiculo cadastrado com Sucesso! ", Toast.LENGTH_SHORT).show();
         progressDialog.dismiss();
 
-        Intent it = new Intent(activity, CadastroDeviceActivity.class);
+        Intent it = new Intent(activity, CadastroDispositivoActivity.class);
         it.putExtra("veiculoId", veiculoId);
         activity.startActivity(it);
 

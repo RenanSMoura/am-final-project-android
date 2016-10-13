@@ -8,14 +8,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 import br.com.notifycar.R;
 import br.com.notifycar.helper.CamposValidate;
+import br.com.notifycar.interfacetask.AsyncResponseModelos;
 import br.com.notifycar.repository.api.AlteraFcmIdUsuarioTask;
 import br.com.notifycar.repository.api.CadastraFcmIdUsuarioTask;
 import br.com.notifycar.repository.api.ListaInformacoesUsuarioTask;
+import br.com.notifycar.repository.api.ListaModelosTask;
 import br.com.notifycar.repository.api.LoginUsuarioTask;
 import br.com.notifycar.repository.api.sharedpreferences.SalvarInformacoes;
 import br.com.notifycar.util.CustomImgLogo;
@@ -33,6 +37,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private DeviceID dvId;
     private AlteraFcmIdUsuarioTask taskFcm;
     private SalvarInformacoes salvarInformacoesCp;
+    private ArrayList<String> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +56,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         edtEmail = (EditText) findViewById(R.id.edtEmailLogin);
 
         salvarInformacoesCp = new SalvarInformacoes(this);
-
 
         edtEmail.setText(salvarInformacoesCp.getEmailLogin());
 

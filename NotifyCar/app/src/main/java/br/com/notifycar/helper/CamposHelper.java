@@ -83,28 +83,18 @@ public class CamposHelper {
         modelos = (Spinner) activity.findViewById(R.id.spinnerModelos);
         cores = (Spinner) activity.findViewById(R.id.spinnerCores);
 
-//        ArrayList<String> coresList = new ArrayList<>();
-//        coresList.add("branco");
-//        coresList.add("prata");
-//        coresList.add("preto");
-//        coresList.add("verde");
-//        coresList.add("azul");
-//        coresList.add("vinho");
-//
-//        ArrayAdapter<String> adp = new ArrayAdapter<>(activity, android.R.layout.simple_spinner_dropdown_item, coresList);
-//        cores.setAdapter(adp);
-
         JSONObject veiculo = new JSONObject();
-        veiculo.put("cor", "verde");
+        veiculo.put("cor", cores.getSelectedItem().toString());
         veiculo.put("ano", edtAno.getText().toString());
         veiculo.put("placa", edtPlaca.getText().toString());
         veiculo.put("modeloId", "57ef06025fe420003acc1bc7");
+        //veiculo.put("modeloId", modelos.getSelectedItem().toString());
         veiculo.put("usuarioId", usuarioId);
 
         return  veiculo;
     }
 
-    public JSONObject recuperaCamporDevice(Activity activity, String veiculoId) throws JSONException {
+    public JSONObject recuperaCamposDispositivo(Activity activity, String veiculoId) throws JSONException {
         deviceEdt = (EditText) activity.findViewById(R.id.deviceEdt);
 
         JSONObject device = new JSONObject();
@@ -235,7 +225,6 @@ public class CamposHelper {
 
           String dispositivoId = dispositivoObject.getString("deviceId");
 
-//          hideDialog(activity);
 
           Intent it = new Intent(activity, MenuTabActivity.class);
           it.putExtra("idVeiculo", idVeiculo);
@@ -284,6 +273,26 @@ public class CamposHelper {
         }
     }
 
+    public void preencheListasCadastro(Activity activity){
+        cores = (Spinner) activity.findViewById(R.id.spinnerCores);
+        modelos = (Spinner) activity.findViewById(R.id.spinnerModelos);
+
+        ArrayList<String> coresList = new ArrayList<>();
+        coresList.add("branco");
+        coresList.add("prata");
+        coresList.add("preto");
+        coresList.add("verde");
+        coresList.add("azul");
+        coresList.add("vinho");
+
+        ArrayAdapter<String> adp = new ArrayAdapter<>(activity, android.R.layout.simple_spinner_item, coresList);
+        cores.setAdapter(adp);
+
+
+
+    }
+
+
     public void showDialog(Activity activity){
         progressDialog = new ProgressDialog(activity);
         progressDialog.setTitle("Carregando...");
@@ -292,7 +301,6 @@ public class CamposHelper {
     }
 
     public void hideDialog(Activity activity){
-        ProgressDialog progressDialog = new ProgressDialog(activity);
         progressDialog.dismiss();
     }
 

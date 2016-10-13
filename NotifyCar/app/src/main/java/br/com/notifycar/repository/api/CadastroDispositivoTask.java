@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -15,8 +14,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import br.com.notifycar.R;
-import br.com.notifycar.controller.CadastroDeviceActivity;
 import br.com.notifycar.controller.LoginActivity;
 import br.com.notifycar.helper.CamposHelper;
 import br.com.notifycar.util.UtilJson;
@@ -24,7 +21,7 @@ import br.com.notifycar.util.UtilJson;
 /**
  * Created by Desenvolvimento on 06/10/2016.
  */
-public class CadastroDeviceTask extends AsyncTask<String, Void, String> {
+public class CadastroDispositivoTask extends AsyncTask<String, Void, String> {
 
     private Activity activity;
     private ProgressDialog progressDialog;
@@ -32,7 +29,7 @@ public class CadastroDeviceTask extends AsyncTask<String, Void, String> {
     private String veiculoId;
     CamposHelper helper = new CamposHelper();
 
-    public CadastroDeviceTask(Activity activity, String veiculoId){
+    public CadastroDispositivoTask(Activity activity, String veiculoId){
         this.activity = activity;
         this.veiculoId = veiculoId;
     }
@@ -57,7 +54,7 @@ public class CadastroDeviceTask extends AsyncTask<String, Void, String> {
             DataOutputStream out = new DataOutputStream(conn.getOutputStream());
 
 
-            out.writeBytes(helper.recuperaCamporDevice(activity,veiculoId).toString());
+            out.writeBytes(helper.recuperaCamposDispositivo(activity,veiculoId).toString());
 
             out.flush();
             out.close();
@@ -86,6 +83,8 @@ public class CadastroDeviceTask extends AsyncTask<String, Void, String> {
         Toast.makeText(activity, "Cadastro Concluido com sucesso! ", Toast.LENGTH_LONG).show();
         progressDialog.dismiss();
         Intent it = new Intent(activity, LoginActivity.class);
+        it.addCategory(Intent.CATEGORY_HOME);
+        it.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         activity.startActivity(it);
     }
 }

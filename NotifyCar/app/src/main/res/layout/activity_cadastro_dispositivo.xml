@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ntcBackground"
-    tools:context="br.com.notifycar.controller.CadastroDeviceActivity">
+    tools:context=".controller.CadastroDispositivoActivity">
 
     <TextView
         android:text="Cadastro de dispositivo"
@@ -29,7 +29,7 @@
 
     <EditText
         android:id="@+id/deviceEdt"
-        android:hint="Código do device"
+        android:hint="Código do dispositivo"
         android:textColorHint="@color/white"
         android:ems="15"
         android:layout_below="@id/CadastroDispositivo"

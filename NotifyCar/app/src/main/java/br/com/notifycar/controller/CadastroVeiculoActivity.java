@@ -8,12 +8,15 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import br.com.notifycar.R;
+import br.com.notifycar.helper.CamposHelper;
 import br.com.notifycar.repository.api.CadastroVeiculoTask;
+import br.com.notifycar.repository.api.ListaModelosTask;
 
 public class CadastroVeiculoActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnCadastrarVeiculo;
     private String idUsuario;
+    private CamposHelper helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +28,11 @@ public class CadastroVeiculoActivity extends AppCompatActivity implements View.O
 
         btnCadastrarVeiculo  = (Button) findViewById(R.id.btnCadastroVeiculo);
         btnCadastrarVeiculo.setOnClickListener(this);
+        helper = new CamposHelper();
+        helper.preencheListasCadastro(this);
+
+        ListaModelosTask task = new ListaModelosTask(this);
+        task.execute();
     }
 
     @Override

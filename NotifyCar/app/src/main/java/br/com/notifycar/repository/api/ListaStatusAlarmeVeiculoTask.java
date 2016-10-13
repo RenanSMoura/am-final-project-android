@@ -31,7 +31,7 @@ public class ListaStatusAlarmeVeiculoTask extends AsyncTask<String, Void, String
     protected String doInBackground(String... strings) {
         URL url = null;
         try {
-            url = new URL("http://http://notifycar-api.mybluemix.net/localizacao/veiculo/"+idVeiculo+"/1");
+            url = new URL("http://notifycar-api.mybluemix.net/localizacao/veiculo/"+idVeiculo+"/1");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
 
