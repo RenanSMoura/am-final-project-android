@@ -7,25 +7,26 @@
     android:layout_height="match_parent"
     android:background="@color/ntcBackground"
     tools:context=".controller.CadastroVeiculoActivity">
+
     <ImageView
         android:id="@+id/ntc_logo_image_cadastro_view"
-        android:src="@drawable/logo20"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true"
+        android:src="@drawable/logo20" />
 
     <TextView
         android:id="@+id/CadastroUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:text="Cadastro de veículo"
         android:textAppearance="?android:textAppearanceLarge"
         android:textColor="@color/white"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
 
         />
 
@@ -35,63 +36,67 @@
         android:layout_height="wrap_content"
 
         android:layout_above="@+id/spinnerCores"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true" />
+
     <Spinner
         android:id="@+id/spinnerCores"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/ntc_logo_image_cadastro_view"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/placaEdt"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp" />
-
-    <EditText
-        android:id="@+id/placaEdt"
-        android:hint="Placa"
-        android:textColorHint="@color/white"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="6"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:layout_below="@+id/ntc_logo_image_cadastro_view"
-        android:layout_alignRight="@+id/edtAno"
-        android:layout_alignEnd="@+id/edtAno"
-        android:layout_marginTop="25dp"
-        android:textColor="@color/white" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_toStartOf="@+id/placaEdt" />
 
 
     <Button
-        android:text="Avançar"
         android:id="@+id/btnCadastroVeiculo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="16"
-        android:layout_marginBottom="41dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="41dp"
+        android:ems="16"
+        android:text="Avançar" />
 
     <EditText
         android:id="@+id/edtAno"
-        android:hint="Ano"
-        android:textColorHint="@color/white"
-        android:textAppearance="?android:textAppearanceMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="6"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
         android:layout_below="@+id/placaEdt"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:textColor="@color/white" />
+        android:ems="6"
+        android:hint="Ano"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:inputType="number"
+        android:maxLength="4"/>
+
+    <EditText
+        android:id="@+id/placaEdt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/edtAno"
+        android:layout_alignStart="@+id/edtAno"
+        android:layout_below="@+id/ntc_logo_image_cadastro_view"
+        android:layout_marginTop="22dp"
+        android:ems="6"
+        android:hint="Placa"
+        android:inputType="text"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
 
 </RelativeLayout>

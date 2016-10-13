@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.opengl.EGLDisplay;
 import android.support.v7.app.AlertDialog;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -24,7 +23,6 @@ import br.com.notifycar.R;
 import br.com.notifycar.controller.mapa.MapsViewActivity;
 import br.com.notifycar.menu.MenuTabActivity;
 import br.com.notifycar.repository.api.BloqueioDesbloqueioVeiculoTask;
-import br.com.notifycar.controller.mapa.MapsViewActivity;
 import br.com.notifycar.model.Usuario;
 
 /**
